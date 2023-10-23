@@ -1,4 +1,3 @@
-// components/Button.tsx
 import React from "react";
 import Link from "next/link";
 
@@ -28,7 +27,9 @@ const Button: React.FC<ButtonProps> = ({
     };
     const variantClasses = {
       primary: "bg-primary-600 text-white focus:ring-4 hover:bg-primary-700 shadow-sm focus:ring-primary-100 focus-visible:outline-4 focus-visible:outline-primary-100 focus-visible:outline-offset-4",
+
       "secondary-gray": " bg-white text-gray-700 focus:ring-4 shadow-sm ring-1 ring-inset focus:ring-gray-100  focus-visible:outline-4    focus-visible:outline-gray-100 focus-visible:outline-offset-4 ring-gray-300 hover:text-gray-800 hover:bg-gray-50",
+
       "tertiary-gray": " hover:bg-gray-50 text-gray-600 focus:bg-white hover:text-gray-700",
     };
     const buttonClasses = [
@@ -39,18 +40,14 @@ const Button: React.FC<ButtonProps> = ({
       variantClasses[variant],
       disabled ? "opacity-50 cursor-not-allowed" : "",
     ].filter(Boolean).join(" ");
-    
+
     const commonProps = {
       onClick,
       className: buttonClasses,
       ...props,
     };
 
-    return href ? (
-      <Link href={href} {...commonProps} />
-    ) : (
-      <button {...commonProps} />
-    );
+    return href ? <Link href={href} {...commonProps} /> : <button {...commonProps} />;
 };
 
 export default Button;
